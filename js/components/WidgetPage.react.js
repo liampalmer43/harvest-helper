@@ -72,9 +72,6 @@ console.log("UPDATING DAYA~!!!!!!!!!!!!!!!!!!!!!");
             case 3:
                 content = <Recipe data={climateData} />;
                 break;
-            case 4:
-                content = <div>HIIH</div>
-                break;
             default:
         }
         /*
@@ -95,7 +92,6 @@ console.log(locations);
                     <div className="imageContainer"><img src="photos/climate.png" onClick={this._setWidget.bind(this, 1)} className="imageTab" /></div>
                     <div className="imageContainer"><img src="photos/nearby-location.png" onClick={this._setWidget.bind(this, 2)} className="imageTab" /></div>
                     <div className="imageContainer"><img src="photos/recipe.png" onClick={this._setWidget.bind(this, 3)} className="imageTab" /></div>
-                    <div className="imageContainer"><img src="photos/farmers.png" onClick={this._setWidget.bind(this, 4)} className="imageTab" /></div>
                 </div>
                 <div className="clear"></div>
                 {content}

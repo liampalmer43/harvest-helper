@@ -26,7 +26,7 @@ var Posts = React.createClass({
 
     componentDidMount: function() {
         PostStore.addChangeListener(this._onChange);
-        if (PostStore.getAllPosts().length === 0) {
+        if (PostStore.getState().length === 0) {
             PostActions.getS3Posts();
         }
     },
@@ -39,6 +39,7 @@ var Posts = React.createClass({
         var posts = this.state.posts;
         var postViews = [];
         for (var i = 0; i < posts.length; ++i) {
+/*
             postViews.push(<Post key={i}
                 action={posts[i]["action"]}
                 subject={posts[i]["subject"]}
@@ -47,10 +48,11 @@ var Posts = React.createClass({
                 upvotes={posts[i]["upvotes"]}
                 downvotes={posts[i]["downvotes"]}
                 id={posts[i]["id"]} />)
+*/
+            postViews.push(<div key={i}>posts[i].content</div>);
         }
         return (
             <div className="postContainer">
-                <div className="placeHolder"></div>
                 {postViews}
             </div>
         );
