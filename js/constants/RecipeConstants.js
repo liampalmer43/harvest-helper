@@ -1,5 +1,5 @@
 var keyMirror = require('keymirror');
 
 module.exports = keyMirror({
-    GET_DATA: null
+    GET_RECIPE_DATA: null
 });

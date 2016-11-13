@@ -8,6 +8,7 @@ var ButtonToolbar = require('react-bootstrap/lib/ButtonToolbar');
 var Glyphicon = require('react-bootstrap/lib/Glyphicon');
 var Col = require('react-bootstrap/lib/Col');
 var Row = require('react-bootstrap/lib/Row');
+var ProgressBar = require('react-bootstrap/lib/ProgressBar');
 
 function compare(a,b) {
   	if (a.distance < b.distance) {
@@ -58,6 +59,9 @@ var Grow = React.createClass({
 
     render: function() {
         var users = this.state.userData;
+        if (users.length === 0) {
+            return(<div className="locationView"><ProgressBar active now={100} /></div>);
+        } 
 		users.sort(compare);
         var locationViews = [];
         for (var i = 0; i < users.length; ++i) {

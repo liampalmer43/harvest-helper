@@ -5,7 +5,7 @@ var assign = require('object-assign');
 var CHANGE_EVENT = 'change';
 
 var state = [];
-var ingredients = ["bananas", "peanuts"];
+var ingredients = [];
 
 
 function getData() {
@@ -53,7 +53,8 @@ var RecipeStore = assign({}, EventEmitter.prototype, {
 AppDispatcher.register(function(action) {
 
     switch(action.actionType) {
-        case RecipeConstants.GET_DATA:
+        case RecipeConstants.GET_RECIPE_DATA:
+            ingredients = action.ingredients;
             getData();
             break;
         default:

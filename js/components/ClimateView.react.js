@@ -118,7 +118,9 @@ var ClimateView = React.createClass({
         //for (var i = 0; i < tags.length; ++i) {
         //    tagViews.push(<Badge key={i} className="tag" pullRight={true}>{tags[i]}</Badge>)
         //}
-        if (data.length === 0) {
+        if (data === null) {
+            return(<div></div>);
+        } else if (data.length === 0) {
             return(<div className="climateView"><ProgressBar active now={100} /></div>);
         }
         var first = getFirst(data);
