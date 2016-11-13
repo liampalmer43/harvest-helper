@@ -2,12 +2,8 @@ var keyMirror = require('keymirror');
 
 module.exports = keyMirror({
     // Pages
-    PERSONAL_PROJECTS: null,
-    INTERNSHIPS: null,
-    CODING: null,
-    RESUME: null,
-    REACT: null,
-    PICTO_STORY: null,
+    LOCATION_SEARCH: null,
+    WIDGET_PAGE: null,
     // Actions
     CHANGE_STATE: null
 });

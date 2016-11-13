@@ -6,9 +6,10 @@ var React = require('react');
 //var Find = require('./components/Find.react');
 //var Giddit = require('./components/Giddit.react');
 //var LocationSearch = require('./components/LocationSearch.react');
-var Grow = require('./components/Grow.react');
+
+var Harvest = require('./components/Harvest.react');
 
 ReactDOM.render(
-    <Grow />,
+    <Harvest />,
     document.getElementById('website')
 );

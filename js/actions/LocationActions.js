@@ -7,6 +7,12 @@ var LocationActions = {
             actionType: LocationConstants.GET_LOCATIONS,
             text: text
         });
+    },
+    setSelectedLocation: function(loc) {
+        AppDispatcher.dispatch({
+            actionType: LocationConstants.SET_SELECTED_LOCATION,
+            loc: loc
+        });
     }
 };
 
