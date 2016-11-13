@@ -73,22 +73,8 @@ console.log(locations);
 
         return (
             <div className="locationSearch">
-                <Navbar>
-                    <Navbar.Header>
-                        <Navbar.Brand>
-                            <a>Location:</a>
-                        </Navbar.Brand>
-                        <Navbar.Toggle />
-                    </Navbar.Header>
-                    <Navbar.Collapse>
-                        <Navbar.Form pullLeft>
-                            <FormGroup>
-                                <FormControl type="text" placeholder="Search" onInput={this._getLocations} id="searchLocation"/>
-                            </FormGroup>
-                            {' '}
-                        </Navbar.Form>
-                    </Navbar.Collapse>
-                </Navbar>
+				
+				<input className="searchInput" type="text" placeholder="Search Location" onChange={this._getLocations} id="searchLocation"/>
                 <ListGroup className="locationViews">{locationViews}</ListGroup>
             </div>
         );
