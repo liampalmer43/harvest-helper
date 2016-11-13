@@ -24,14 +24,11 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-
 }
 
-./distanceSpan {
+.distanceSpan {
     font-size: 22px;
 }
-
-
 
 /* Home Page CSS */
 
