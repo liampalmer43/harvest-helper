@@ -84,7 +84,7 @@ console.log("");
         if (xhr.readyState == 4 && xhr.status == 200) {
             var response = JSON.parse(xhr.responseText);
 console.log(response);
-			for (var i = 0; i < Math.min(response.length, 50); i++) {
+			for (var i = 0; i < response.length; i++) {
 				var userObject = response[i];
 				if (userObject.latitude - latitude < 5 && userObject.latitude - latitude > -5 && userObject.longitude - longitude < 5 && userObject.longitude - longitude > -5) {
 					getPlantings(userObject);				
