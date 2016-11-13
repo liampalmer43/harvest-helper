@@ -13,7 +13,7 @@ var Header = React.createClass({
     render: function() {
         return (
             <div className="header">
-                Harvest Helper - Create your home garden
+                Harvest Helper - Plan Your Home Garden
             </div>
         );
     }
