@@ -28,14 +28,9 @@ function getState() {
 
 var Grow = React.createClass({
 
-    _getLocations: function(e) {
-        if (e.keyCode === 13) {
-            var text = document.getElementById("search").value;
-            LocationActions.getLocations(text);
-        }
-    },
-
     getInitialState: function() {
+        console.log("getting initial state");
+        console.log(getState());
         return getState();
     },
 
@@ -45,16 +40,6 @@ var Grow = React.createClass({
 
     componentWillUnmount: function() {
         GrowStore.removeChangeListener(this._onChange);
-    },
-
-    componentDidUpdate: function(prevProps, prevState) {
-        var pData = prevProps.data;
-        var nData = this.props.data;
-        if (Object.keys(pData).length === 0 && Object.keys(nData).length !== 0) {
-            var latitude = nData.GeoPosition.Latitude;
-            var longitude = nData.GeoPosition.Longitude;
-            GrowActions.getData(latitude, longitude);
-        }
     },
 
     render: function() {

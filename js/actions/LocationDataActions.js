@@ -8,6 +8,12 @@ var LocationDataActions = {
             key: key
         });
     },
+    setWidget: function(w) {
+        AppDispatcher.dispatch({
+            actionType: LocationDataConstants.SET_WIDGET,
+            widget: w
+        });
+    },
 };
 
 module.exports = LocationDataActions;

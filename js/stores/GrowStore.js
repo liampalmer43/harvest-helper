@@ -8,7 +8,6 @@ var state = [];
 var latitude = -1;
 var longitude = -1;
 
-
 function toRad(x) {
    return x * Math.PI / 180;
 }
@@ -38,7 +37,6 @@ function getCrop(userObject, plantObject, url) {
 	var xhr = new XMLHttpRequest();
     xhr.open("GET", "http://www.growstuff.org/crops/" + plantObject.crop_id + ".json", true);
     xhr.onreadystatechange = function(e) {
-        console.log(e);
         if (xhr.readyState == 4 && xhr.status == 200) {
             var response = JSON.parse(xhr.responseText);
 
@@ -51,8 +49,6 @@ function getCrop(userObject, plantObject, url) {
 								description: plantObject.description,
 								sunniness: plantObject.sunniness,
 								planted_from: plantObject.planted_from};
-
-			console.log(response);
             state.push(dataObject);
             GrowStore.emitChange();
         }
@@ -65,12 +61,8 @@ function getPlantings(userObject) {
 	var url = "http://www.growstuff.org/plantings/owner/" + userObject.slug;
     xhr.open("GET", url + ".json", true);
     xhr.onreadystatechange = function(e) {
-        console.log(e);
-		console.log("--------------------!!!---");
         if (xhr.readyState == 4 && xhr.status == 200) {
             var response = JSON.parse(xhr.responseText);
-			console.log(response);
-			console.log(response.length + "heyyyyyy");
             for (var i = 0; i < response.length; i++) {
                 var plantObject = response[i];
             	getCrop(userObject, plantObject, url);
@@ -81,17 +73,18 @@ function getPlantings(userObject) {
 }
 
 function getData() {
+console.log("GET DATA_____________________________");
+console.log("");
+console.log("");
+
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "http://www.growstuff.org/places.json", true);
 //    xhr.setRequestHeader('Access-Control-Allow-Origin','*');
 	xhr.onreadystatechange = function(e) {
-        console.log(e);
         if (xhr.readyState == 4 && xhr.status == 200) {
             var response = JSON.parse(xhr.responseText);
-			console.log("-----");
-			console.log(response);
-			console.log(response.length);
-			for (var i = 0; i < response.length; i++) {
+console.log(response);
+			for (var i = 0; i < Math.min(response.length, 50); i++) {
 				var userObject = response[i];
 				if (userObject.latitude - latitude < 5 && userObject.latitude - latitude > -5 && userObject.longitude - longitude < 5 && userObject.longitude - longitude > -5) {
 					getPlantings(userObject);				
@@ -99,6 +92,8 @@ function getData() {
 			}
             //state = response;
             //GrowStore.emitChange();
+        } else {
+            console.log("WHATATA");
         }
     }
     xhr.send();

@@ -7,6 +7,12 @@ var CHANGE_EVENT = 'change';
 
 var locationData = {};
 var climateData = [];
+var widget = 1;
+
+function setWidget(num) {
+    widget = num;
+    LocationDataStore.emitChange(); 
+}
 
 function getAccuLocationData(key) {
     getLocationData(key);
@@ -61,6 +67,10 @@ function getClimateData(key, values, month) {
 }
 
 var LocationDataStore = assign({}, EventEmitter.prototype, {
+    getWidget: function() {
+        return widget;
+    },
+
     getLocationData: function() {
         return locationData;
     },
@@ -92,6 +102,9 @@ AppDispatcher.register(function(action) {
     switch(action.actionType) {
         case LocationDataConstants.GET_LOCATION_DATA:
             getAccuLocationData(action.key);
+            break;
+        case LocationDataConstants.SET_WIDGET:
+            setWidget(action.widget);
             break;
         default:
     }

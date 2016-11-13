@@ -44,6 +44,12 @@ body {
     margin: auto;
 }
 
+.recipeView {
+    width: 520px;
+    min-width: 570px;
+    margin: auto;
+}
+
 .climateView {
     width: 500px;
     min-width: 500px;
@@ -54,6 +60,38 @@ body {
     width: 300px;
     min-width: 300px;
     margin: auto;
+}
+
+.imageTabs {
+    width: 320px;
+    min-width: 320px;
+    height: 80px;
+    min-height: 80px;
+    margin: 20px auto;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+}
+
+.clear {
+    clear: both;
+    height: 50px;
+    min-height: 50px;
+}
+
+.imageTab {
+    height: 100%;
+    width: 100%;
+}
+
+.imageContainer {
+    max-width: 60px;
+    max-height: 60px;
+    width: 60px;
+    height: 60px;
+    float: left;
+    margin: 10px;
 }
 
 .cropTag {

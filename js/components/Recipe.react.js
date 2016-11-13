@@ -10,6 +10,7 @@ var Col = require('react-bootstrap/lib/Col');
 var Row = require('react-bootstrap/lib/Row');
 var Form = require('react-bootstrap/lib/Form');
 var Checkbox = require('react-bootstrap/lib/Checkbox');
+var Panel = require('react-bootstrap/lib/Panel');
 
 function getFeasibleCrops(data) {
     var first = getFirst(data);
@@ -116,9 +117,14 @@ var Recipe = React.createClass({
 
     render: function() {
         var options = getFeasibleCrops(this.props.data);
-        var optionViews = [];
+        var optionViews1 = [];
+        var optionViews2 = [];
         for (var i = 0; i < options.length; ++i) {
-            optionViews.push(<div><label><input key={i} type="checkbox" className="recipeOption" value={options[i]}></input>{options[i]}</label></div>);
+            if (i % 2 === 0) {
+                optionViews1.push(<div key={i}><label><input type="checkbox" className="recipeOption" value={options[i]} id="recipeOption"></input>{options[i]}</label></div>);
+            } else {
+                optionViews2.push(<div key={i}><label><input type="checkbox" className="recipeOption" value={options[i]} id="recipeOption"></input>{options[i]}</label></div>);
+            }
         }
 
         var data = this.state.recipeData;
@@ -139,8 +145,18 @@ var Recipe = React.createClass({
 
         return (
             <div>
-                <Form horizontal className="recipeForm">{optionViews}<Button bsStyle="primary" onClick={this._getRecipes}>Find Recipes</Button></Form>
-				<div className="recipeWidget">{recipeViews}</div>
+                <div className="recipeView">
+                    <Panel header={"Recipe Search"} bsStyle="info">
+                        <div className="recipeForm">
+                            <Row>
+                                <Col xs={6} sm={6} md={6} lg={6}>{optionViews1}</Col>
+                                <Col xs={6} sm={6} md={6} lg={6}>{optionViews2}</Col>
+                            </Row>
+                            <Button bsStyle="primary" onClick={this._getRecipes}>Find Recipes</Button>
+                        </div>
+                    </Panel>
+                </div>
+                <div className="recipeWidget">{recipeViews}</div>
             </div>
         );
     },
