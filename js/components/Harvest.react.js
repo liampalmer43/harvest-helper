@@ -1,5 +1,6 @@
 var LocationSearch = require('./LocationSearch.react');
 var WidgetPage = require('./WidgetPage.react');
+var Header = require('./Header.react');
 
 var React = require('react');
 var NavigationStore = require('../stores/NavigationStore');
@@ -39,6 +40,8 @@ var Harvest = React.createClass({
         
         return (
             <div>
+                <Header />
+                <div className="placeHolder"></div>
                 {content}
             </div>
         );

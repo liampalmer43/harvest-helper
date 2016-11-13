@@ -25,11 +25,9 @@ function getState() {
 
 var LocationSearch = React.createClass({
 
-    _getLocations: function(e) {
-        if (e.keyCode === 13) {
-            var text = document.getElementById("searchLocation").value;
-            LocationActions.getLocations(text);
-        }
+    _getLocations: function() {
+        var text = document.getElementById("searchLocation").value;
+        LocationActions.getLocations(text);
     },
 
     _setSelectedLocation: function(loc) {
@@ -85,7 +83,7 @@ console.log(locations);
                     <Navbar.Collapse>
                         <Navbar.Form pullLeft>
                             <FormGroup>
-                                <FormControl type="text" placeholder="Search" onKeyDown={this._getLocations} id="searchLocation"/>
+                                <FormControl type="text" placeholder="Search" onInput={this._getLocations} id="searchLocation"/>
                             </FormGroup>
                             {' '}
                         </Navbar.Form>
