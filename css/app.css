@@ -1,3 +1,10 @@
+.recipeImage {
+	width: 150px;
+	height: 150px;
+	display: block;
+	margin: auto;
+}
+
 .growWidget {
     width: 830px;
     max-width: 830px;
@@ -24,6 +31,12 @@
     text-overflow: ellipsis;
     overflow: hidden;
 	white-space: nowrap;
+}
+
+.paragraphCenter {
+	display: block;
+	margin: auto;
+	text-align: center;
 }
 
 .distanceParagraph {
