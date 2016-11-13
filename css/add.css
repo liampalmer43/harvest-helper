@@ -1,8 +1,38 @@
 /* ADD CSS */
 
+.placeHolder {
+    height: 100px;
+    min-height: 100px;
+}
+
+.widgetPage {
+    padding-top: 20px;
+}
+
+.header {
+    font-size: 30px;
+    font-family: "Georgia";
+    background-color: #b3e0ff;
+    text-align: center;
+    padding: 22px 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+body {
+    background-image: url("../photos/world.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 50% 150px;
+    background-attachment: fixed;
+}
+
 .locationViews {
-    width: 300px;
-    min-width: 300px;
+    width: 350px;
+    min-width: 350px;
     margin: auto;
 }
 

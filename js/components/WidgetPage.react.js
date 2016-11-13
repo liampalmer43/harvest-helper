@@ -53,7 +53,7 @@ var WidgetPage = React.createClass({
 console.log(locations);
 */
         return (
-            <div>AAAAA
+            <div className="widgetPage">
                 <LocationView data={locationData} />
                 <ClimateView data={climateData} />
                 <Grow data={locationData} />}
