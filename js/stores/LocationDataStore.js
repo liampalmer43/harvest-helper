@@ -40,7 +40,8 @@ function getClimateData(key, values, month) {
     }
     console.log("Making api call for month: " + month);
     var xhr = new XMLHttpRequest();
-    var url = "http://apidev.accuweather.com/climo/v1/summary/2015/0" + month + "/" + key + "?apikey=PSUHackathon112016";
+    var monthText = month < 10 ? "0" + month : month;
+    var url = "http://apidev.accuweather.com/climo/v1/summary/2015/" + monthText + "/" + key + "?apikey=PSUHackathon112016";
     //var url = "https://apidev.accuweather.com/climo/v1/actuals/" + key + "?start=2015/01/01&end=2015/12/31&apikey=PSUHackathon112016";
     xhr.open("GET", url, true);
     xhr.onreadystatechange = function(e) {

@@ -9,6 +9,7 @@ var Button = require('react-bootstrap/lib/Button');
 var Glyphicon = require('react-bootstrap/lib/Glyphicon');
 var Badge = require('react-bootstrap/lib/Badge');
 var Panel = require('react-bootstrap/lib/Panel');
+var ProgressBar = require('react-bootstrap/lib/ProgressBar');
 
 var LocationView = React.createClass({
 
@@ -19,7 +20,7 @@ var LocationView = React.createClass({
         //    tagViews.push(<Badge key={i} className="tag" pullRight={true}>{tags[i]}</Badge>)
         //}
         if (Object.keys(data).length === 0) {
-            return(<div>NOOOOO</div>);
+            return(<div className="locationView"><ProgressBar active now={100} /></div>);
         } 
 
         return (
