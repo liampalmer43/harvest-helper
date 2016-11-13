@@ -1,0 +1,23 @@
+/* ADD CSS */
+
+.locationViews {
+    width: 300px;
+    min-width: 300px;
+    margin: auto;
+}
+
+.locationView {
+    width: 500px;
+    min-width: 500px;
+    margin: auto;
+}
+
+.climateView {
+    width: 500px;
+    min-width: 500px;
+    margin: auto;
+}
+
+.cropTag {
+    margin: 3px;
+}

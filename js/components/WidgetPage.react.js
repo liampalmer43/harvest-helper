@@ -3,6 +3,9 @@ var LocationDataActions = require('../actions/LocationDataActions');
 var LocationDataStore = require('../stores/LocationDataStore');
 var LocationStore = require('../stores/LocationStore');
 
+var LocationView = require('./LocationView.react');
+var ClimateView = require('./ClimateView.react');
+
 var Button = require('react-bootstrap/lib/Button');
 var ButtonGroup = require('react-bootstrap/lib/ButtonGroup');
 var ButtonToolbar = require('react-bootstrap/lib/ButtonToolbar');
@@ -38,6 +41,8 @@ var WidgetPage = React.createClass({
         var locationData = this.state.locationData;
         var climateData = this.state.climateData;
         console.log("LOOGGGGKJGKJGKGJ");
+        console.log(locationData);
+        console.log(climateData);
         /*
         var locations = this.state.locations;
         var locationViews = [];
@@ -48,6 +53,8 @@ console.log(locations);
 */
         return (
             <div>AAAAA
+                <LocationView data={locationData} />
+                <ClimateView data={climateData} />
             </div>
         );
     },

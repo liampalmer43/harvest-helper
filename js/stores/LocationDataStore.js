@@ -23,8 +23,8 @@ function getLocationData(key) {
             var response = JSON.parse(xhr.responseText);
             console.log("LOCATION DATA");
             console.log(response);
-            //locations = response;
-            //LocationStore.emitChange();
+            locationData = response;
+            LocationDataStore.emitChange();
         }
     }
     xhr.send();
@@ -32,10 +32,10 @@ function getLocationData(key) {
 
 function getClimateData(key, values, month) {
     if (month > 12) {
-        climateData = values;
-        LocationDataStore.emitChange();
         console.log("ALL API CALLS DONE");
         console.log(climateData);
+        climateData = values;
+        LocationDataStore.emitChange();
         return;
     }
     console.log("Making api call for month: " + month);
