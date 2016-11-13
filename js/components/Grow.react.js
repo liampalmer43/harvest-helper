@@ -9,6 +9,16 @@ var Glyphicon = require('react-bootstrap/lib/Glyphicon');
 var Col = require('react-bootstrap/lib/Col');
 var Row = require('react-bootstrap/lib/Row');
 
+function compare(a,b) {
+  	if (a.distance < b.distance) {
+    	return -1;
+	}
+  	if (a.distance > b.distance) {
+    	return 1;
+	}
+  	return 0;
+}
+
 function getState() {
     return {
         userData: GrowStore.getState()
@@ -40,17 +50,20 @@ var Grow = React.createClass({
 
     render: function() {
         var users = this.state.userData;
+		users.sort(compare);
         var locationViews = [];
         for (var i = 0; i < users.length; ++i) {
-            locationViews.push(<div key={i}>
-									<p>{"Name: " + users[i].name}</p>
-									<p>{"Location: " + users[i].location}</p>
-									<p>{"Latitude: " + users[i].latitude}</p>
-									<p>{"Longitude: " + users[i].longitude}</p>
-									<p>{"Description: " + users[i].description}</p>
-									<p>{"Sunniness: " + users[i].sunniness}</p>
-									<p>{"Planted from: " + users[i].planted_from}</p>
-									<a>{"URL: " + users[i].url}</a>
+            locationViews.push(
+								<div className="growItem" key={i}>
+									<p className="distanceParagraph">Distance: <span className="distanceSpan">{users[i].distance}</span> miles</p>
+									<p className="growItemParagraph">{"Name: " + users[i].name}</p>
+									<p className="growItemParagraph">{"Location: " + users[i].location}</p>
+									<p className="growItemParagraph">{"Latitude: " + users[i].latitude}</p>
+									<p className="growItemParagraph">{"Longitude: " + users[i].longitude}</p>
+									<p className="growItemParagraph">{"Description: " + users[i].description}</p>
+									<p className="growItemParagraph">{"Sunniness: " + users[i].sunniness}</p>
+									<p className="growItemParagraph">{"Planted from: " + users[i].planted_from}</p>
+									<a  className="growItemParagraph" href={users[i].url} target="_blank">Visit original posting.</a>
 								</div>);
         }
 console.log(users);
