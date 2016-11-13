@@ -5,8 +5,8 @@ var assign = require('object-assign');
 var CHANGE_EVENT = 'change';
 
 var state = [];
-var latitude = 35;
-var longitude = -90;
+var latitude = -1;
+var longitude = -1;
 
 
 function toRad(x) {
@@ -127,6 +127,8 @@ AppDispatcher.register(function(action) {
 
     switch(action.actionType) {
         case GrowConstants.GET_DATA:
+            latitude = action.latitude;
+            longitude = action.longitude;
             getData();
             break;
         default:

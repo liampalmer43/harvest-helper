@@ -40,13 +40,21 @@ var Grow = React.createClass({
 
     componentDidMount: function() {
         GrowStore.addChangeListener(this._onChange);
-		GrowActions.getData();
     },
 
     componentWillUnmount: function() {
         GrowStore.removeChangeListener(this._onChange);
     },
 
+    componentDidUpdate: function(prevProps, prevState) {
+        var pData = prevProps.data;
+        var nData = this.props.data;
+        if (Object.keys(pData).length === 0 && Object.keys(nData).length !== 0) {
+            var latitude = nData.GeoPosition.Latitude;
+            var longitude = nData.GeoPosition.Longitude;
+            GrowActions.getData(latitude, longitude);
+        }
+    },
 
     render: function() {
         var users = this.state.userData;
@@ -71,7 +79,7 @@ console.log("-------");
 console.log(users.length);
 
         return (
-            <div>
+            <div className="growWidget">
 				{locationViews}
             </div>
         );

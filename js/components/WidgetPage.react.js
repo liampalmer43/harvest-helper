@@ -5,6 +5,7 @@ var LocationStore = require('../stores/LocationStore');
 
 var LocationView = require('./LocationView.react');
 var ClimateView = require('./ClimateView.react');
+var Grow = require('./Grow.react');
 
 var Button = require('react-bootstrap/lib/Button');
 var ButtonGroup = require('react-bootstrap/lib/ButtonGroup');
@@ -55,6 +56,7 @@ console.log(locations);
             <div>AAAAA
                 <LocationView data={locationData} />
                 <ClimateView data={climateData} />
+                <Grow data={locationData} />}
             </div>
         );
     },
