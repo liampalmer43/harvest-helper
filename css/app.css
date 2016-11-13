@@ -19,6 +19,15 @@
     margin: auto;
 }
 
+.recipeWidget {
+    width: 830px;
+    max-width: 830px;
+    height: 600px;
+    max-height: 600px;
+    overflow: auto;
+    margin: auto;
+}
+
 .growItem {
 	overflow-y: auto;
 	display: inline-block;

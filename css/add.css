@@ -50,6 +50,12 @@ body {
     margin: auto;
 }
 
+.recipeForm {
+    width: 300px;
+    min-width: 300px;
+    margin: auto;
+}
+
 .cropTag {
     margin: 3px;
 }

@@ -19,7 +19,9 @@ var LocationView = React.createClass({
         //for (var i = 0; i < tags.length; ++i) {
         //    tagViews.push(<Badge key={i} className="tag" pullRight={true}>{tags[i]}</Badge>)
         //}
-        if (Object.keys(data).length === 0) {
+        if (data === null) {
+            return(<div></div>);
+        } else if (Object.keys(data).length === 0) {
             return(<div className="locationView"><ProgressBar active now={100} /></div>);
         } 
 
