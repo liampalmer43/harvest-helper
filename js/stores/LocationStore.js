@@ -22,6 +22,11 @@ function getAccuLocations(text) {
     xhr.send();
 }
 
+function setSelectedAccuLocation(loc) {
+    selectedLocation = loc;
+    console.log(selectedLocation);
+}
+
 var LocationStore = assign({}, EventEmitter.prototype, {
     getLocations: function() {
         return locations;
@@ -54,6 +59,9 @@ AppDispatcher.register(function(action) {
     switch(action.actionType) {
         case LocationConstants.GET_LOCATIONS:
             getAccuLocations(action.text);
+            break;
+        case LocationConstants.SET_SELECTED_LOCATION:
+            setSelectedAccuLocation(action.loc);
             break;
         default:
     }

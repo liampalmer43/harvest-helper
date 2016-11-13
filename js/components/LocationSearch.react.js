@@ -1,5 +1,7 @@
 var React = require('react');
 var LocationActions = require('../actions/LocationActions');
+var NavigationActions = require('../actions/NavigationActions');
+var NavigationConstants = require('../constants/NavigationConstants');
 var LocationStore = require('../stores/LocationStore');
 
 var Button = require('react-bootstrap/lib/Button');
@@ -25,6 +27,13 @@ var LocationSearch = React.createClass({
         }
     },
 
+    _setSelectedLocation: function(loc) {
+        console.log("SETTING");
+        console.log(loc);
+        LocationActions.setSelectedLocation(loc);
+        NavigationActions.update(NavigationConstants.WIDGET_PAGE);
+    },
+
     getInitialState: function() {
         return getState();
     },
@@ -42,7 +51,9 @@ var LocationSearch = React.createClass({
         var locations = this.state.locations;
         var locationViews = [];
         for (var i = 0; i < locations.length; ++i) {
-            locationViews.push(<p key={i}>{locations[i]["LocalizedName"]}</p>);
+            var name = locations[i]["LocalizedName"];
+            var country = locations[i]["Country"]["LocalizedName"];
+            locationViews.push(<Button key={i} onClick={this._setSelectedLocation.bind(this, locations[i])}>{name + ", " + country}</Button>);
         }
 console.log(locations);
 

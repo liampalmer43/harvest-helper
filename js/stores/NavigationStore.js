@@ -5,7 +5,7 @@ var assign = require('object-assign');
 
 var CHANGE_EVENT = 'change';
 
-var state = NavigationConstants.PERSONAL_PROJECTS;
+var state = NavigationConstants.LOCATION_SEARCH;
 
 function update(new_state) {
     if (state !== new_state) {

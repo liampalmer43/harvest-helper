@@ -5,9 +5,10 @@ var React = require('react');
 //var Posts = require('./components/Posts.react');
 //var Find = require('./components/Find.react');
 //var Giddit = require('./components/Giddit.react');
-var LocationSearch = require('./components/LocationSearch.react');
+//var LocationSearch = require('./components/LocationSearch.react');
+var Harvest = require('./components/Harvest.react');
 
 ReactDOM.render(
-    <LocationSearch />,
+    <Harvest />,
     document.getElementById('website')
 );
