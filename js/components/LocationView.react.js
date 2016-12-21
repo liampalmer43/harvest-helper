@@ -15,10 +15,7 @@ var LocationView = React.createClass({
 
     render: function() {
         var data = this.props.data;
-        //var tagViews = [];
-        //for (var i = 0; i < tags.length; ++i) {
-        //    tagViews.push(<Badge key={i} className="tag" pullRight={true}>{tags[i]}</Badge>)
-        //}
+
         if (data === null) {
             return(<div></div>);
         } else if (Object.keys(data).length === 0) {
